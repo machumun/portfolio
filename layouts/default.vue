@@ -1,117 +1,132 @@
 <template>
-  <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-item
+  <div>
+    <v-app id="inspire">
+      <v-navigation-drawer
+        v-model="drawer"
+        :clipped="clipped"
+        fixed
+        app
+        stateless
+      >
+        <v-list>
+          <v-list-item
+            v-for="(item, i) in items"
+            :key="i"
+            :to="item.to"
+            router
+            exact
+          >
+            <v-list-item-action>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.title" />
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+
+      <v-app-bar :clipped-left="clipped" fixed app color="c4">
+        <v-app-bar-nav-icon
+          @click.stop="drawer = !drawer"
+          class="hidden-md-and-up"
+        />
+        <v-toolbar-title v-text="title" class="custom" />
+        <sizebtn />
+        <v-spacer />
+
+        <v-toolbar-items
           v-for="(item, i) in items"
           :key="i"
-          :to="item.to"
-          router
-          exact
+          class="hidden-sm-and-down"
         >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar
-      :clipped-left="clipped"
-      fixed
-      app
-    >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
-    </v-app-bar>
-    <v-content>
-      <v-container>
+          <v-btn :to="item.to" text color="c1">
+            <v-icon left>{{ item.icon }}</v-icon>
+            <div style="font-family:'cp';">{{ item.title }}</div>
+          </v-btn>
+        </v-toolbar-items>
+      </v-app-bar>
+
+      <v-content>
         <nuxt />
-      </v-container>
-    </v-content>
-    <v-navigation-drawer
-      v-model="rightDrawer"
-      :right="right"
-      temporary
-      fixed
-    >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer
-      :fixed="fixed"
-      app
-    >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
-  </v-app>
+      </v-content>
+
+      <v-footer color="c1">
+        <v-col class="text-center" cols="12">
+          <span class="ft">&copy;2020 Hidesato Nakamura</span>
+        </v-col>
+      </v-footer>
+    </v-app>
+  </div>
 </template>
 
+<style lang="scss">
+.custom {
+  font-family: "cp";
+  font-size: 40px;
+  color: #2b4f58;
+}
+.m-custom {
+  font-family: "cp";
+  color: #2b4f58;
+}
+.ft {
+  font-size: 10px;
+  color: white;
+}
+.bg {
+  background-image: url("~@/assets/p2.jpg");
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-size: 110%;
+  background-color: rgba(255, 255, 255, 0.5);
+  background-blend-mode: lighten;
+}
+#inspire {
+  background: none;
+}
+</style>
+
 <script>
+import Sizebtn from "~/components/size";
+
 export default {
-  data () {
+  components: {
+    Sizebtn
+  },
+  data() {
     return {
-      clipped: false,
+      clipped: true,
       drawer: false,
-      fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
+          icon: "mdi-account",
+          title: "Profile",
+          to: "/"
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: "mdi-cursor-pointer",
+          title: "Skill",
+          to: "/skill"
+        },
+        {
+          icon: "mdi-folder-multiple-outline",
+          title: "Works",
+          to: "/works"
+        },
+        {
+          icon: "mdi-email",
+          title: "Contact",
+          to: "/contact"
         }
       ],
-      miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
-    }
+      title: "Portfolio",
+      fixed: true
+    };
   }
-}
+};
 </script>
