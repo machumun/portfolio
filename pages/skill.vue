@@ -19,9 +19,14 @@
             Web系
           </v-card-title>
         </v-card>
+
         <v-row wrap justify="center">
-          <v-col v-for="(item, i) in webitems" :key="i" cols="12" md="3" sm="4">
-            <skillcard :item="item" />
+          <v-col cols="12" md="9">
+            <v-row wrap justify="left">
+              <v-col v-for="(item, i) in webitems" :key="i" cols="12" md="4">
+                <skillcard :item="item" />
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
 
@@ -89,7 +94,7 @@ export default {
           title: "JavaScript",
           rating: 4,
           comment:
-            "フロントとバックに一貫して使用。友人と開発した脳トレアプリゲームをGooglePlayStoreでリリースした経験あり。",
+            "フロントとバックに一貫して使用しました。友人と開発した脳トレアプリゲームをGooglePlayStoreでリリースした経験があります。",
           career: 1
         },
         {
@@ -102,6 +107,18 @@ export default {
           title: "CSS/SCSS",
           rating: 2.5,
           comment: "本サイトのcssフレームワークにはVuetifyを使用しています。",
+          career: 1
+        },
+        {
+          title: "Node.js",
+          rating: 3,
+          comment: "基本的な処理は一通り可能です。",
+          career: 1
+        },
+        {
+          title: "Nuxt.js/Vue",
+          rating: 3,
+          comment: "シンプルなWebアプリケーションを制作することができます。",
           career: 1
         }
       ],
@@ -137,7 +154,7 @@ export default {
         {
           title: "Adobe Photoshop",
           rating: 3,
-          comment: "スプライトシート編集での使用経験あり。",
+          comment: "スプライトシート編集での使用経験があります。",
           career: 1
         }
       ],
@@ -146,14 +163,14 @@ export default {
           title: "Firebase",
           rating: 3,
           comment:
-            "身内向けにTETRIS風のパズルゲームを公開。その時のスコアランキングの処理に使用。",
+            "身内向けにTETRIS風のパズルゲームを公開し、その時のスコアランキングの処理に使用しました。",
           career: 1
         },
         {
           title: "MySQL",
           rating: 3,
           comment:
-            "現在開発中のWebアプリケーションでのアカウント情報管理に使用。",
+            "現在開発中のWebアプリケーションでのアカウント情報管理に使用しています。",
           career: 1
         },
         {

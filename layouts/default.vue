@@ -6,7 +6,7 @@
         :clipped="clipped"
         fixed
         app
-        stateless
+        disable-resize-watcher
       >
         <v-list>
           <v-list-item
@@ -31,8 +31,8 @@
           @click.stop="drawer = !drawer"
           class="hidden-md-and-up"
         />
-        <v-toolbar-title v-text="title" class="custom" />
-        <sizebtn />
+        <v-toolbar-title v-text="title" class="custom" to="/" />
+        <!-- <sizebtn /> -->
         <v-spacer />
 
         <v-toolbar-items
@@ -82,6 +82,16 @@
   left: 0;
   background-size: 110%;
   background-color: rgba(255, 255, 255, 0.5);
+  background-blend-mode: lighten;
+}
+.bg2 {
+  background-image: url("~@/assets/p4.jpg");
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-size: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
   background-blend-mode: lighten;
 }
 #inspire {
