@@ -8,7 +8,7 @@
               <v-list-item-content>
                 <!-- <div class="overline mb-4">OVERLINE</div> -->
                 <v-avatar size="150" class="mt-5">
-                  <img src="~/assets/me.jpg" alt="me" />
+                  <img src="~/assets/イラスト.jpg" alt="me" />
                 </v-avatar>
                 <v-list-item-title class="headline mt-5">
                   <div class="m-custom mr-5">

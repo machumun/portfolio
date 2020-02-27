@@ -32,9 +32,9 @@
               <v-img :src="src[2]" />
             </v-card>
 
-            <v-card class="ma-5" @click="overlay=!overlay;i=3;">
+            <!-- <v-card class="ma-5" @click="overlay=!overlay;i=3;" >
               <v-img :src="src[3]" />
-            </v-card>
+            </v-card>-->
 
             <v-overlay :value="overlay">
               <v-card width="400px" class="ma-5">
