@@ -1,21 +1,9 @@
 <template>
   <div>
     <v-app id="inspire">
-      <v-navigation-drawer
-        v-model="drawer"
-        :clipped="clipped"
-        fixed
-        app
-        disable-resize-watcher
-      >
+      <v-navigation-drawer v-model="drawer" :clipped="clipped" fixed app disable-resize-watcher>
         <v-list>
-          <v-list-item
-            v-for="(item, i) in items"
-            :key="i"
-            :to="item.to"
-            router
-            exact
-          >
+          <v-list-item v-for="(item, i) in items" :key="i" :to="item.to" router exact>
             <v-list-item-action>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-action>
@@ -27,19 +15,12 @@
       </v-navigation-drawer>
 
       <v-app-bar :clipped-left="clipped" fixed app color="c4">
-        <v-app-bar-nav-icon
-          @click.stop="drawer = !drawer"
-          class="hidden-md-and-up"
-        />
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="hidden-md-and-up" />
         <v-toolbar-title v-text="title" class="custom" to="/" />
         <!-- <sizebtn /> -->
         <v-spacer />
 
-        <v-toolbar-items
-          v-for="(item, i) in items"
-          :key="i"
-          class="hidden-sm-and-down"
-        >
+        <v-toolbar-items v-for="(item, i) in items" :key="i" class="hidden-sm-and-down">
           <v-btn :to="item.to" text color="c1">
             <v-icon left>{{ item.icon }}</v-icon>
             <div style="font-family:'cp';">{{ item.title }}</div>
@@ -94,6 +75,13 @@
   background-color: rgba(255, 255, 255, 0.6);
   background-blend-mode: lighten;
 }
+
+.bg3 {
+  width: 100%;
+  height: 100%;
+  background-color: #eeece1;
+}
+
 #inspire {
   background: none;
 }

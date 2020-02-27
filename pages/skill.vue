@@ -1,13 +1,12 @@
 <template>
-  <v-container>
+  <v-container fluid>
     <v-layout>
       <v-flex class="text-center">
         <v-row wrap justify="center">
           <v-col cols="6">
             <v-list-item-title class="headline mt-5">
               <div class="m-custom">
-                <v-icon left class="mb-1" color="c2">mdi-cursor-pointer</v-icon
-                >SKILL
+                <v-icon left class="mb-1" color="c2">mdi-cursor-pointer</v-icon>SKILL
               </div>
             </v-list-item-title>
           </v-col>
@@ -15,8 +14,7 @@
 
         <v-card flat>
           <v-card-title>
-            <v-icon left color="c2">mdi-monitor</v-icon>
-            Web系
+            <v-icon left color="c2">mdi-monitor</v-icon>Web系
           </v-card-title>
         </v-card>
 
@@ -32,8 +30,7 @@
 
         <v-card flat>
           <v-card-title>
-            <v-icon left color="c2">mdi-database</v-icon>
-            DB
+            <v-icon left color="c2">mdi-database</v-icon>DB
           </v-card-title>
         </v-card>
         <v-row wrap justify="center">
@@ -44,27 +41,19 @@
 
         <v-card flat>
           <v-card-title>
-            <v-icon left color="c2">mdi-calculator</v-icon>
-            制御・業務系
+            <v-icon left color="c2">mdi-calculator</v-icon>制御・業務系
           </v-card-title>
         </v-card>
 
         <v-row wrap justify="center">
-          <v-col
-            v-for="(item, i) in workitems"
-            :key="i"
-            cols="12"
-            md="3"
-            sm="4"
-          >
+          <v-col v-for="(item, i) in workitems" :key="i" cols="12" md="3" sm="4">
             <skillcard :item="item" />
           </v-col>
         </v-row>
 
         <v-card flat>
           <v-card-title>
-            <v-icon left color="c2">mdi-pencil</v-icon>
-            画像編集ソフト
+            <v-icon left color="c2">mdi-pencil</v-icon>画像編集ソフト
           </v-card-title>
         </v-card>
 
